@@ -7,6 +7,9 @@ namespace StrawmanAtc
     {
         string Name { get; }
 
+        void AddObservation<TData>(string droneId, Observation<TData> observation);
+        void AddMission(string droneId, Mission mission);
+
         IQueryable<string> GetDrones();
         IQueryable<Mission> GetMissions(string droneId);
         IQueryable<Observation<TData>> GetObservations<TData>(string droneId);

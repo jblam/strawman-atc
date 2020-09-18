@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace StrawmanAtc
 {
-    public class MockSystemDataStore
+    public interface ISystemDataStore
     {
-        public IQueryable<IAtcDataStore> Atcs { get; }
+        void AddAtc(IAtcDataStore atc);
+        IQueryable<IAtcDataStore> Atcs { get; }
     }
 }
