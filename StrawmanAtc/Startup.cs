@@ -28,6 +28,9 @@ namespace StrawmanAtc
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers()
+                // Newtonsoft.Json is required to deserialise immutable types.
+                // This is planned for System.Text.Json in .NET 5.
+                .AddNewtonsoftJson()
                 .AddJsonOptions(o => o.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase);
             services.AddSingleton(typeof(ISystemDataStore), MockData.CreateSystem());
         }

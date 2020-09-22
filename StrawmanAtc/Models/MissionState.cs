@@ -7,8 +7,8 @@ namespace StrawmanAtc.Models
 {
     public class MissionState<TData>
     {
-        public Mission Mission { get; }
-        public MissionOutcome Outcome { get; }
-        public IReadOnlyCollection<Observation<TData>> CapturedData { get; }
+        public Mission Mission { get; set; }
+        public MissionOutcome Outcome { get; set; }
+        public IReadOnlyCollection<Observation<TData>> CapturedData { get; set; } = Array.Empty<Observation<TData>>();
     }
 }

@@ -7,13 +7,7 @@ namespace StrawmanAtc.Models
 {
     public class SyncMetadata
     {
-        public SyncMetadata(SyncId id, SyncId? basis)
-        {
-            Id = id;
-            Basis = basis;
-        }
-
-        public SyncId Id { get; }
-        public SyncId? Basis { get; }
+        public SyncId Id { get; set; }
+        public SyncId? Basis { get; set; }
     }
 }

@@ -7,10 +7,10 @@ namespace StrawmanAtc.Models
 {
     public class AtcUpdate
     {
-        public SyncMetadata Metadata { get; }
-        public AtcState AtcState { get; }
-        public IReadOnlyCollection<DroneUpdate> Drones { get; }
-        public IReadOnlyCollection<Observation<AtmosphericConditions>> AtmosphericObservations { get; }
-        public IReadOnlyCollection<DeferredContent> DonwloadedContent { get; }
+        public SyncMetadata Metadata { get; set; }
+        public AtcState AtcState { get; set; }
+        public IReadOnlyCollection<DroneUpdate> Drones { get; set; } = Array.Empty<DroneUpdate>();
+        public IReadOnlyCollection<Observation<AtmosphericConditions>> AtmosphericObservations { get; set; } = Array.Empty<Observation<AtmosphericConditions>>();
+        public IReadOnlyCollection<DeferredContent> DonwloadedContent { get; set; } = Array.Empty<DeferredContent>();
     }
 }

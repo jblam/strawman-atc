@@ -7,9 +7,9 @@ namespace StrawmanAtc.Models
 {
     public class DroneUpdate
     {
-        public Observation<DroneState> LatestState { get; }
-        public Mission CurrentMission { get; }
-        public IReadOnlyCollection<Observation<DeferredContent>> CapturedContent { get; }
-        public IReadOnlyCollection<string> AvailableContent { get; }
+        public Observation<DroneState> LatestState { get; set; }
+        public Mission CurrentMission { get; set; }
+        public IReadOnlyCollection<Observation<DeferredContent>> CapturedContent { get; set; } = Array.Empty<Observation<DeferredContent>>();
+        public IReadOnlyCollection<string> AvailableContent { get; } = Array.Empty<string>();
     }
 }
