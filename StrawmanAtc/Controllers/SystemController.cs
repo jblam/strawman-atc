@@ -20,6 +20,19 @@ namespace StrawmanAtc.Controllers
             this.dataStore = dataStore ?? throw new ArgumentNullException(nameof(dataStore));
         }
 
+        [HttpGet("demo")]
+        public ActionResult<AtcUpdate> GetDemo() => new AtcUpdate
+        {
+            AtcState = new AtcState
+            {
+                BatteryFraction = 0.7,
+                Location = MockData.MelbourneIsh,
+                UptimeSeconds = 120
+            },
+            Metadata = new SyncMetadata { Id = new SyncId("Alice", new DateTimeOffset(MockData.DevelopmentTime)) },
+            Drones = new[] { new DroneUpdate { LatestState = new Observation<DroneState>(MockData.MelbourneDev, new DroneState(0.7, CompassDirection.East, 1.0)) } }
+        };
+
         [HttpPost]
         public ActionResult PostUpdate([FromBody]AtcUpdate update)
         {

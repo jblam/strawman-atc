@@ -15,8 +15,9 @@ namespace StrawmanAtc.Mock
         public static MockSystemDataStore CreateSystem()
         {
             var system = new MockSystemDataStore();
+            system.MockObservationStores.Add("Alice", new MockObservationDataStore());
+            system.MockObservationStores.Add("Bob", new MockObservationDataStore());
             return system;
-
         }
     }
 }
