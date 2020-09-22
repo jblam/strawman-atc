@@ -20,7 +20,7 @@ namespace StrawmanAtc
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>().UseUrls("http://0.0.0.0:" + Environment.GetEnvironmentVariable("PATH") ?? "8080");
+                    webBuilder.UseStartup<Startup>().UseUrls("http://0.0.0.0:" + Environment.GetEnvironmentVariable("PORT") ?? "8080");
                 });
     }
 }
