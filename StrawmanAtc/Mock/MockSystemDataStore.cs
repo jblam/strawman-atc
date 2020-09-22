@@ -7,8 +7,8 @@ namespace StrawmanAtc.Mock
 {
     public class MockSystemDataStore : ISystemDataStore
     {
-        internal Dictionary<string, IAtcDataStore> MockAtcs { get; } = new Dictionary<string, IAtcDataStore>();
-        public void AddAtc(IAtcDataStore atc) => MockAtcs.Add(atc.Name, atc);
-        public IQueryable<IAtcDataStore> Atcs => MockAtcs.Values.AsQueryable();
+        internal Dictionary<string, IObservationDataStore> MockObservationStores { get; } = new Dictionary<string, IObservationDataStore>();
+        public IObservationDataStore this[string name] => MockObservationStores[name];
+        public IEnumerable<IObservationDataStore> ObservationStores => MockObservationStores.Values;
     }
 }

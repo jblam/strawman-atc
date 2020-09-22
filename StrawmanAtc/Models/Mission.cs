@@ -5,17 +5,11 @@ using System.Threading.Tasks;
 
 namespace StrawmanAtc.Models
 {
-    public struct Mission
+    public class Mission
     {
-        public Mission(Spacetime objective, MissionAction action, DateTime issuedAt)
-        {
-            Objective = objective;
-            Action = action;
-            IssuedAt = issuedAt;
-        }
-
-        public DateTime IssuedAt { get; }
-        public Spacetime Objective { get; }
-        public MissionAction Action { get; }
+        public string Id { get; set; }
+        public DateTime IssuedAt { get; set; }
+        public Spacetime Objective { get; set; }
+        public MissionAction Action { get; set; }
     }
 }
