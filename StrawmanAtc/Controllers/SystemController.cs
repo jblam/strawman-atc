@@ -21,9 +21,12 @@ namespace StrawmanAtc.Controllers
         }
 
         [HttpPost]
-        public ActionResult PostUpdate(AtcUpdate update)
+        public ActionResult PostUpdate([FromBody]AtcUpdate update)
         {
-            var atc = dataStore[update.Metadata.Id.Owner];
+            var owner = update?.Metadata?.Id.Owner;
+            if (owner == null)
+                return BadRequest("Request did not specify the ATC");
+            var atc = dataStore[owner];
             if (atc.TryAdd(update))
             {
                 return Ok();
