@@ -15,24 +15,8 @@ namespace StrawmanAtc.Mock
         public static MockSystemDataStore CreateSystem()
         {
             var system = new MockSystemDataStore();
-            system.AddAtc(MakeAtc("Alice"));
-            system.AddAtc(MakeAtc("Bob"));
             return system;
 
-            static IAtcDataStore MakeAtc(string name)
-            {
-                var output = new MockAtcDataStore
-                {
-                    MockName = name,
-                };
-                foreach (var id in Enumerable.Range(1, 5))
-                {
-                    var drone = $"{name}_{id}";
-                    output.AddMission(drone, new Mission(Guid.NewGuid().ToString(), objective: MelbourneDev, action: MissionAction.Grounded, issuedAt: DevelopmentTime));
-                    output.AddObservation(drone, new Observation<DroneState>(MelbourneDev, new DroneState(1, CompassDirection.North, 0)));
-                }
-                return output;
-            }
         }
     }
 }

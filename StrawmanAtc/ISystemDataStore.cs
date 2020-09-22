@@ -8,9 +8,6 @@ namespace StrawmanAtc
 {
     public interface ISystemDataStore
     {
-        void AddAtc(IAtcDataStore atc);
-        IQueryable<IAtcDataStore> Atcs { get; }
-
         IObservationDataStore this[string name] { get; }
         IEnumerable<IObservationDataStore> ObservationStores { get; }
     }

@@ -20,9 +20,6 @@ namespace StrawmanAtc.Controllers
             this.dataStore = dataStore ?? throw new ArgumentNullException(nameof(dataStore));
         }
 
-        [HttpGet]
-        public ActionResult GetAtcs() => Ok(dataStore.Atcs);
-
         [HttpPost]
         public ActionResult PostUpdate(AtcUpdate update)
         {
